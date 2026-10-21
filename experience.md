@@ -1,3 +1,11 @@
+
+---
+layout: single
+title: "Professional Experience"
+permalink: /experience/
+author_profile: true
+---
+
 # Professional Experience
 
 ## Lecturer
