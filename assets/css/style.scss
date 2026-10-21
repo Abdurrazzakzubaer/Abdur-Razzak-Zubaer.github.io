@@ -2,41 +2,43 @@
 ---
 ---
 
+$header-bg-color: #0B1F3A;
+$header-bg-color-secondary: #0B1F3A;
+$header-heading-color: #FFFFFF;
+$header-link-color: #FFFFFF;
+$section-headings-color: #0B1F3A;
+$body-text-color: #243247;
+$body-link-color: #15365B;
+$blockquote-text-color: #52657A;
+$blockquote-border-color: #D9E1EA;
+$table-border-color: #D9E1EA;
+$hr-border-color: #D9E1EA;
+
 @import "{{ site.theme }}";
 
-/* Overall page: white background */
-body {
+body,
+.main-content {
   background-color: #FFFFFF !important;
   color: #243247 !important;
 }
 
-/* Top banner: navy blue */
 .page-header {
   background: #0B1F3A !important;
   background-image: none !important;
 }
 
-/* Main title and subtitle: white */
 .project-name,
 .project-tagline,
 .page-header a {
   color: #FFFFFF !important;
 }
 
-/* Buttons in the top banner */
 .page-header .btn {
   color: #0B1F3A !important;
   background-color: #FFFFFF !important;
   border-color: #FFFFFF !important;
 }
 
-/* Main content area: white */
-.main-content {
-  background-color: #FFFFFF !important;
-  color: #243247 !important;
-}
-
-/* Headings: navy blue */
 .main-content h1,
 .main-content h2,
 .main-content h3,
@@ -44,12 +46,10 @@ body {
   color: #0B1F3A !important;
 }
 
-/* Links: navy blue */
 .main-content a {
   color: #15365B !important;
 }
 
-/* Tables */
 .main-content table th {
   background-color: #0B1F3A !important;
   color: #FFFFFF !important;
@@ -60,7 +60,6 @@ body {
   color: #243247 !important;
 }
 
-/* Footer */
 .site-footer {
   background-color: #FFFFFF !important;
   color: #0B1F3A !important;
