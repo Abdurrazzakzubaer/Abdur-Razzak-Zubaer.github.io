@@ -67,8 +67,7 @@ Productivity: Microsoft 365
 - [Google Scholar](YOUR-GOOGLE-SCHOLAR-URL)
 - [ORCID](YOUR-ORCID-URL)
 
-**Email Addresses**
-
+## Email Addresses
 1. [abdur.razzak@civil.wub.edu.bd](mailto:abdur.razzak@civil.wub.edu.bd)
 2. [zubaer.bup@gmail.com](mailto:zubaer.bup@gmail.com)
 3. [0426042502@Ce.buet.ac.bd](mailto:0426042502@Ce.buet.ac.bd)
