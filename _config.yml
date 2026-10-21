@@ -20,7 +20,7 @@ author:
   employer: "World University of Bangladesh"
   email: "abdur.razzak@civil.wub.edu.bd"
   github: "Abdurrazzakzubaer"
-
+  
 # Site settings
 breadcrumbs: true
 words_per_minute: 160
@@ -46,3 +46,11 @@ social:
 include:
   - _pages
   - files
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: true
