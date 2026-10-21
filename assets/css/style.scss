@@ -2,79 +2,54 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+/* Navy blue and white theme variables */
+$header-bg-color: #0B1F3A;
+$header-bg-color-secondary: #0B1F3A;
+$header-heading-color: #FFFFFF;
+$header-link-color: #FFFFFF;
+$section-headings-color: #0B1F3A;
+$body-text-color: #243247;
+$body-link-color: #15365B;
+$blockquote-text-color: #52657A;
+$blockquote-border-color: #D9E1EA;
+$table-border-color: #D9E1EA;
+$hr-border-color: #D9E1EA;
 
-/* Academic portfolio: navy blue and white */
+@import "jekyll-theme-cayman";
 
-:root {
-  --navy: #0B1F3A;
-  --navy-light: #15365B;
-  --white: #FFFFFF;
-  --text: #243247;
-}
-
-/* Main page */
+/* Override remaining theme elements */
 body {
-  background-color: var(--white);
-  color: var(--text);
+  background: #FFFFFF !important;
+  color: #243247 !important;
 }
 
-/* Header banner */
 .page-header {
-  background-color: var(--navy);
-  background-image: none;
-  color: var(--white);
+  background: #0B1F3A !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
 }
 
-/* Main title and description */
 .project-name,
 .project-tagline {
-  color: var(--white);
+  color: #FFFFFF !important;
 }
 
-/* Navigation buttons */
-.btn {
-  color: var(--navy);
-  background-color: var(--white);
-  border-color: var(--white);
-  border-radius: 6px;
-}
-
-.btn:hover {
-  color: var(--white);
-  background-color: var(--navy-light);
-  border-color: var(--white);
-}
-
-/* Content headings */
 .main-content h1,
 .main-content h2,
-.main-content h3 {
-  color: var(--navy);
+.main-content h3,
+.main-content h4 {
+  color: #0B1F3A !important;
 }
 
-/* Links */
 .main-content a {
-  color: var(--navy-light);
-  font-weight: 500;
+  color: #15365B !important;
 }
 
-.main-content a:hover {
-  color: var(--navy);
-}
-
-/* Tables */
 .main-content table th {
-  background-color: var(--navy);
-  color: var(--white);
+  background: #0B1F3A !important;
+  color: #FFFFFF !important;
 }
 
-.main-content table td {
-  background-color: var(--white);
-}
-
-/* Footer */
 .site-footer {
-  border-top: 1px solid #D9E1EA;
-  color: var(--navy);
+  color: #0B1F3A !important;
 }
