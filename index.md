@@ -1,3 +1,9 @@
+---
+layout: single
+title: "Home"
+author_profile: true
+---
+
 # Abdur Razzak Zubaer
 ### Lecturer in Civil & Environmental Engineering | Academic Researcher | Individual Consultant
 
