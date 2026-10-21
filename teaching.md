@@ -1,4 +1,4 @@
-## Courses Taken
+## Courses Taught
 
 ### Theory Courses
 - Solid Waste Management
