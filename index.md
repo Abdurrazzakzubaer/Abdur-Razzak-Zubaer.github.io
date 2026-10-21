@@ -1,13 +1,13 @@
 # Abdur Razzak Zubaer
 ### Lecturer in Civil & Environmental Engineering | Academic Researcher | Individual Consultant
 
-[Academic Profiles](Academic.html) ·
+[Academic Profiles](academic.html) ·
 [Research Interests](research.html) ·
 [Professional Experience](experience.html) ·
 [Projects](projects.html) ·
 [Publications](publications.html) ·
 [Teaching](teaching.html) ·
-[Academic CV](cv.html)
+[CV](cv.html)
 
 ---
 ## Overview
