@@ -1,0 +1,67 @@
+
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Overall page: white background */
+body {
+  background-color: #FFFFFF !important;
+  color: #243247 !important;
+}
+
+/* Top banner: navy blue */
+.page-header {
+  background: #0B1F3A !important;
+  background-image: none !important;
+}
+
+/* Main title and subtitle: white */
+.project-name,
+.project-tagline,
+.page-header a {
+  color: #FFFFFF !important;
+}
+
+/* Buttons in the top banner */
+.page-header .btn {
+  color: #0B1F3A !important;
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+/* Main content area: white */
+.main-content {
+  background-color: #FFFFFF !important;
+  color: #243247 !important;
+}
+
+/* Headings: navy blue */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+  color: #0B1F3A !important;
+}
+
+/* Links: navy blue */
+.main-content a {
+  color: #15365B !important;
+}
+
+/* Tables */
+.main-content table th {
+  background-color: #0B1F3A !important;
+  color: #FFFFFF !important;
+}
+
+.main-content table td {
+  background-color: #FFFFFF !important;
+  color: #243247 !important;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #FFFFFF !important;
+  color: #0B1F3A !important;
+}
