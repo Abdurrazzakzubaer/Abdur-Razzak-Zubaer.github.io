@@ -7,16 +7,7 @@ author_profile: true
 # Abdur Razzak Zubaer
 ### Lecturer in Civil & Environmental Engineering | Academic Researcher | Individual Consultant
 
-[Academic Profiles](aprofile.html) ·
-[Research Interests](research.html) ·
-[Professional Experience](experience.html) ·
-[Projects](projects.html) ·
-[Publications](publications.html) ·
-[Courses Taught](teaching.html) ·
-[CV](cv.html)
-
 ---
-## Overview
 
 ## About Me
 
@@ -37,13 +28,6 @@ I have worked in academic, consultancy, industrial, and research settings, inclu
 - Junior Environmental Engineer and Graduate Engineer — ACE Consultants Limited
 - Assistant Environmental Engineer — Eagle Fibre Industries Ltd.
 - Research Assistant — Ahsanullah University of Science and Technology
-
-## Academic Profiles
-
-- [GitHub](https://github.com/Abdurrazzakzubaer)
-- [Google Scholar](https://scholar.google.com/citations?user=k_MgNaEAAAAJ&hl=en)
-- [ORCID](https://orcid.org/0009-0003-7472-3922)
-- [LinkedIn](https://www.linkedin.com/feed/)
 
 ## Technical Skills
 
