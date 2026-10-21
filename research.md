@@ -1,3 +1,11 @@
+
+---
+layout: single
+title: "Research"
+permalink: /research/
+author_profile: true
+---
+
 # Research Interests
 
 My research interests focus on Environmental assessment, WASH and Air Pollution.
