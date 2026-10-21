@@ -1,8 +1,3 @@
-
----
-Homepage
----
-
 # Abdur Razzak Zubaer
 ### Lecturer in Civil & Environmental Engineering | Environmental Engineering Research
 
@@ -71,10 +66,6 @@ Productivity: Microsoft 365
 - [GitHub](https://github.com/YOUR-USERNAME)
 - [Google Scholar](YOUR-GOOGLE-SCHOLAR-URL)
 - [ORCID](YOUR-ORCID-URL)
-
-## Contact
-
-For academic and research enquiries, please contact:
 
 **Email Addresses**
 
