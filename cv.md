@@ -26,7 +26,7 @@
       Detailed professional background, experience, skills,
       projects, and other relevant achievements.
     </p>
-    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV%20Abdur%20Razzak%20Zubaer_Detailed.pdf"
+    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV%20Abdur%20Razzak%20Zubaer_Detailed_21.10.26.pdf"
        download="CV_Abdur_Razzak_Zubaer_Detailed.pdf">
       Download Detailed CV (PDF)
     </a>
