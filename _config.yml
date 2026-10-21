@@ -1,16 +1,12 @@
 title: "Abdur Razzak Zubaer"
 description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
-url: "https://Abdur-Razzak-Zubaer.github.io"
+
+url: "https://abdurrazzakzubaer.github.io"
 baseurl: "/Abdur-Razzak-Zubaer.github.io"
-theme: jekyll-theme-cayman
-sass:
-  style: compressed
-<p align="center">
-  <img
-    src="https://github.com/Abdurrazzakzubaer/Abdur-Razzak-Zubaer.github.io/blob/main/ARZ_Passport%20Size.jpeg?raw=true"
-    alt="Abdur Razzak Zubaer"
-    width="180"
-    height="180"
-    style="border-radius: 50%; object-fit: cover; border: 4px solid #0B1F3A;"
-  />
-</p>
+
+remote_theme: "mmistakes/minimal-mistakes"
+
+plugins:
+  - jekyll-include-cache
+
+minimal_mistakes_skin: "default"
