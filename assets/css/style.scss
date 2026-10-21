@@ -2,9 +2,9 @@
 ---
 ---
 
-@import "jekyll-theme-cayman";
+@import "{{ site.theme }}";
 
-/* White page background and dark body text */
+/* Force a white page */
 html,
 body,
 .main-content {
@@ -18,21 +18,21 @@ body,
   background-image: none !important;
 }
 
-/* White title and subtitle */
+/* White banner text */
 .page-header .project-name,
 .page-header .project-tagline,
 .page-header a {
   color: #FFFFFF !important;
 }
 
-/* White buttons with navy text */
+/* White buttons on the navy banner */
 .page-header .btn {
   background: #FFFFFF !important;
   color: #0B1F3A !important;
-  border: 1px solid #FFFFFF !important;
+  border-color: #FFFFFF !important;
 }
 
-/* Navy headings */
+/* Navy headings on white background */
 .main-content h1,
 .main-content h2,
 .main-content h3,
@@ -40,12 +40,12 @@ body,
   color: #0B1F3A !important;
 }
 
-/* Navy links */
+/* Links */
 .main-content a {
   color: #15365B !important;
 }
 
-/* Navy table headers */
+/* Tables */
 .main-content table th {
   background: #0B1F3A !important;
   color: #FFFFFF !important;
@@ -54,10 +54,4 @@ body,
 .main-content table td {
   background: #FFFFFF !important;
   color: #243247 !important;
-}
-
-/* White footer */
-.site-footer {
-  background: #FFFFFF !important;
-  color: #0B1F3A !important;
 }
