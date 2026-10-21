@@ -1,3 +1,11 @@
+
+---
+layout: single
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
+---
+
 ## Courses Taught
 
 ### Theory Courses
