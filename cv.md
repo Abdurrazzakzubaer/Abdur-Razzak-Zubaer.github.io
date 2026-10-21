@@ -1,10 +1,6 @@
+## Curriculum Vitae
 
-
-<h2>Curriculum Vitae</h2>
-
-<p>
-  Explore and download my academic and professional CV documents below.
-</p>
+Explore and download my academic and professional CV documents below.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
 
@@ -14,21 +10,21 @@
       Academic qualifications, research interests, publications,
       teaching experience, and academic activities.
     </p>
-    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV_Academic_Abdur%20Razzak%20Zubaer.pdf"
+    <a href="./CV_Academic_Abdur%20Razzak%20Zubaer.pdf"
        download="CV_Academic_Abdur_Razzak_Zubaer.pdf">
       Download Academic CV (PDF)
     </a>
   </div>
 
   <div style="flex: 1 1 250px; padding: 24px; border: 1px solid #ddd; border-radius: 10px;">
-    <h3>Detailed CV</h3>
+    <h3>Detailed CV (22.10.26)</h3>
     <p>
-      Detailed professional background, experience, skills,
-      projects, and other relevant achievements.
+      Detailed professional background, work experience, skills,
+      projects, publications, and achievements.
     </p>
-    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV%20Abdur%20Razzak%20Zubaer_Detailed_22.10.26.pdf"
+    <a href="./CV%20Abdur%20Razzak%20Zubaer_Detaile_22.10.26.pdf"
        download="CV_Abdur_Razzak_Zubaer_Detailed_22.10.26.pdf">
-      Download Detailed CV (PDF)
+      Download Detailed CV (22.10.26) (PDF)
     </a>
   </div>
 
