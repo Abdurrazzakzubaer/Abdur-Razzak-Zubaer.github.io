@@ -15,11 +15,8 @@ repository: "Abdurrazzakzubaer/Abdur-Razzak-Zubaer.github.io"
 author:
   avatar: "https://abdurrazzakzubaer.github.io/Abdur-Razzak-Zubaer.github.io/Abdur%20Razzak%20Zubaer.jpg"
   name: "Abdur Razzak Zubaer"
-  bio: "Lecturer | Environmental Engineering Researcher"
+  bio: "Lecturer | Academic Researcher | Individual Consultant"
   location: "Dhaka, Bangladesh"
-  employer: "World University of Bangladesh"
-  email: "abdur.razzak@civil.wub.edu.bd"
-  github: "Abdurrazzakzubaer"
   
 # Site settings
 breadcrumbs: true
