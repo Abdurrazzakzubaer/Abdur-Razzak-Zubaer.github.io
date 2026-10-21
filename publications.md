@@ -1,3 +1,11 @@
+
+---
+layout: single
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
 # Publications
 
 The following publications and conference proceedings are listed in my academic CV.
