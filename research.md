@@ -1,12 +1,6 @@
-
----
-layout: default
-title: Research
----
-
 # Research Interests
 
-My research interests focus on environmental assessment, water and sanitation, and Air Pollution.
+My research interests focus on Environmental assessment, WASH and Air Pollution.
 
 ## Environmental and Social Impact Assessment
 - Environmental and socioeconomic impacts of transport infrastructure
@@ -19,10 +13,6 @@ My research interests focus on environmental assessment, water and sanitation, a
 - Water and sanitation conditions in urban areas
 - Bangladesh's progress toward Sustainable Development Goal 6
 - Assessment of water and sanitation service quality
-
-## Gender in WASH
-
-Research on gender-related considerations in water, sanitation, and hygiene, including the relationship between service provision, accessibility, and gender-responsive planning.
 
 ## Air Pollution
 - Assessment of ambient air quality and air pollution levels in urban areas
