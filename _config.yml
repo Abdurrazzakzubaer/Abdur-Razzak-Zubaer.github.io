@@ -1,6 +1,7 @@
 title: "Abdur Razzak Zubaer"
 description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
 url: "https://Abdur-Razzak-Zubaer.github.io"
+baseurl: "/Abdur-Razzak-Zubaer.github.io"
 theme: jekyll-theme-cayman
 sass:
   style: compressed
