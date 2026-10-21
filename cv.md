@@ -1,32 +1,34 @@
 
----
-title: "Curriculum Vitae"
-permalink: /cv/
-layout: single
-author_profile: true
----
+
+<h2>Curriculum Vitae</h2>
 
 <p>
-  Download my CV documents using the links below.
+  Explore and download my academic and professional CV documents below.
 </p>
 
-<div style="display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
 
-  <div style="border: 1px solid #d9d9d9; border-radius: 10px; padding: 20px; flex: 1 1 240px;">
+  <div style="flex: 1 1 250px; padding: 24px; border: 1px solid #ddd; border-radius: 10px;">
     <h3>Academic CV</h3>
-    <p>Academic qualifications, teaching experience, research, and publications.</p>
-    <a href="/Abdur-Razzak-Zubaer.github.io/files/Academic_CV.pdf"
-       download="Abdur_Razzak_Zubaer_Academic_CV.pdf">
+    <p>
+      Academic qualifications, research interests, publications,
+      teaching experience, and academic activities.
+    </p>
+    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV_Academic_Abdur%20Razzak%20Zubaer.pdf"
+       download="CV_Academic_Abdur_Razzak_Zubaer.pdf">
       Download Academic CV (PDF)
     </a>
   </div>
 
-  <div style="border: 1px solid #d9d9d9; border-radius: 10px; padding: 20px; flex: 1 1 240px;">
-    <h3>Professional CV</h3>
-    <p>Professional experience, technical skills, and engineering projects.</p>
-    <a href="/Abdur-Razzak-Zubaer.github.io/files/Professional_CV.pdf"
-       download="Abdur_Razzak_Zubaer_Professional_CV.pdf">
-      Download Professional CV (PDF)
+  <div style="flex: 1 1 250px; padding: 24px; border: 1px solid #ddd; border-radius: 10px;">
+    <h3>Detailed CV</h3>
+    <p>
+      Detailed professional background, experience, skills,
+      projects, and other relevant achievements.
+    </p>
+    <a href="/Abdur-Razzak-Zubaer.github.io/files/CV%20Abdur%20Razzak%20Zubaer_Detailed.pdf"
+       download="CV_Abdur_Razzak_Zubaer_Detailed.pdf">
+      Download Detailed CV (PDF)
     </a>
   </div>
 
