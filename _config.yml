@@ -1,12 +1,23 @@
+# Site settings
 title: "Abdur Razzak Zubaer"
-description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
+tagline: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
 
 url: "https://abdurrazzakzubaer.github.io"
 baseurl: "/Abdur-Razzak-Zubaer.github.io"
 
-remote_theme: "mmistakes/minimal-mistakes"
+# Chirpy theme
+theme: jekyll-theme-chirpy
 
-plugins:
-  - jekyll-include-cache
+# Language and timezone
+lang: en
+timezone: Asia/Dhaka
 
-minimal_mistakes_skin: "default"
+# Appearance
+theme_mode: light
+
+# Pagination
+paginate: 10
+
+# Sass
+sass:
+  style: compressed
