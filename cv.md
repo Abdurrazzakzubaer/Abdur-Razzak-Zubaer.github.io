@@ -22,7 +22,7 @@ Explore and download my academic and professional CV documents below.
       Detailed professional background, work experience, skills,
       projects, publications, and achievements.
     </p>
-    <a href="./CV%20Abdur%20Razzak%20Zubaer_Detaile_22.10.26.pdf"
+    <a href="./CV%20Abdur%20Razzak%20Zubaer_Detailed_22.10.26.pdf"
        download="CV_Abdur_Razzak_Zubaer_Detailed_22.10.26.pdf">
       Download Detailed CV (22.10.26) (PDF)
     </a>
