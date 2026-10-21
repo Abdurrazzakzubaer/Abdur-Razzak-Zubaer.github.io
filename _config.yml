@@ -1,12 +1,7 @@
 title: "Abdur Razzak Zubaer"
 description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
-
-url: "https://abdurrazzakzubaer.github.io"
+url: "https://Abdur-Razzak-Zubaer.github.io"
 baseurl: "/Abdur-Razzak-Zubaer.github.io"
-
-remote_theme: "mmistakes/minimal-mistakes"
-
-plugins:
-  - jekyll-include-cache
-
-minimal_mistakes_skin: "default"
+theme: jekyll-theme-cayman
+sass:
+  style: compressed
