@@ -36,6 +36,8 @@ I have worked in academic, consultancy, industrial, and research settings, inclu
 
 GIS: ArcGIS and QGIS
 
+Modeling: Statistical Modeling (Prediction Model)
+
 Drafting: AutoCAD
 
 Design and Analysis: ETABS, JASP, and SPSS
