@@ -5,7 +5,7 @@
 [Professional Experience](experience.html) ·
 [Projects](projects.html) ·
 [Publications](publications.html) ·
-[Teaching](teaching.html) ·
+[Courses Taught](teaching.html) ·
 [CV](cv.html)
 
 ---
