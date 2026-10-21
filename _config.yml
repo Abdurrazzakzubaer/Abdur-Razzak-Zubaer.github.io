@@ -1,23 +1,49 @@
-# Site settings
+# Basic site settings
+locale: "en-US"
+site_theme: "default"
+
 title: "Abdur Razzak Zubaer"
-tagline: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
+title_separator: "-"
+name: "Abdur Razzak Zubaer"
+description: "Academic portfolio of Abdur Razzak Zubaer | Civil and Environmental Engineering, Environmental Impact Assessment, WASH, and Statistical Modeling"
 
 url: "https://abdurrazzakzubaer.github.io"
 baseurl: "/Abdur-Razzak-Zubaer.github.io"
+repository: "Abdurrazzakzubaer/Abdur-Razzak-Zubaer.github.io"
 
-# Chirpy theme
-theme: jekyll-theme-chirpy
+# Author profile
+author:
+  avatar: "ARZ_Passport Size.jpeg"
+  name: "Abdur Razzak Zubaer"
+  bio: "Lecturer | Environmental Engineering Researcher"
+  location: "Dhaka, Bangladesh"
+  employer: "World University of Bangladesh"
+  email: "abdur.razzak@civil.wub.edu.bd"
 
-# Language and timezone
-lang: en
-timezone: Asia/Dhaka
+  github: "Abdurrazzakzubaer"
 
-# Appearance
-theme_mode: light
+# Site settings
+breadcrumbs: true
+words_per_minute: 160
+future: true
+read_more: "disabled"
 
-# Pagination
-paginate: 10
+# Comments
+comments:
+  provider: false
 
-# Sass
-sass:
-  style: compressed
+# Analytics
+analytics:
+  provider: "false"
+
+# Social profiles
+social:
+  type: "Person"
+  name: "Abdur Razzak Zubaer"
+  links:
+    - "https://github.com/Abdurrazzakzubaer"
+
+# Files and pages
+include:
+  - _pages
+  - files
