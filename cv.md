@@ -1,3 +1,9 @@
+---
+layout: single
+title: "Curriculum Vitae"
+permalink: /cv/
+author_profile: true
+---
 
 <h2>Curriculum Vitae</h2>
 
