@@ -1,7 +1,5 @@
 # Abdur Razzak Zubaer
-### Lecturer in Civil & Environmental Engineering | Environmental Engineering Research
-
-Welcome to my academic website. I am a Lecturer in the Department of Civil & Environmental Engineering at World University of Bangladesh. My academic and professional interests include environmental assessment, water and sanitation, sustainable infrastructure, and environmental management.
+### Lecturer in Civil & Environmental Engineering | Academic Researcher | Individual Consultant
 
 [Research](research.html) ·
 [Experience](experience.html) ·
@@ -21,8 +19,8 @@ My research interests focus on Environmental and Social Impact Assessment practi
 ## Academic Qualifications
 
 - **MSc in Environmental Engineering** — Bangladesh University of Engineering and Technology (BUET), ongoing
-- **MSc in Environmental Science and Management** — Bangladesh University of Professionals (BUP), 
-- **BSc in Civil Engineering** — Ahsanullah University of Science and Technology (AUST), 
+- **MSc in Environmental Science and Management** — Bangladesh University of Professionals (BUP)
+- **BSc in Civil Engineering** — Ahsanullah University of Science and Technology (AUST) 
 
 ## Research Interests
 
@@ -45,8 +43,6 @@ See the [professional experience page](experience.html) for further details.
 
 ## Publications and Scholarly Work
 
-My scholarly work includes publications and conference proceedings on environmental assessment, WASH, SDG 6, climate-related analysis, transportation, infrastructure, and civil engineering materials.
-
 Visit the [publications page](publications.html) for article titles, publication details, and DOI links.
 
 ## Technical Skills
@@ -63,9 +59,10 @@ Productivity: Microsoft 365
 
 ## Academic Profiles
 
-- [GitHub](https://github.com/YOUR-USERNAME)
-- [Google Scholar](YOUR-GOOGLE-SCHOLAR-URL)
-- [ORCID](YOUR-ORCID-URL)
+- [GitHub](https://github.com/Abdur-Razzak-Zubaer)
+- [Google Scholar](https://scholar.google.com/citations?user=k_MgNaEAAAAJ&hl=en)
+- [ORCID](https://orcid.org/0009-0003-7472-3922)
+- [LinkedIn](https://www.linkedin.com/feed/)
 
 ## Email Addresses
 1. [abdur.razzak@civil.wub.edu.bd](mailto:abdur.razzak@civil.wub.edu.bd)
