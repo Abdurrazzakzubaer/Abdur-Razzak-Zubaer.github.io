@@ -1,15 +1,16 @@
 ## Courses Taught
 
 ### Theory Courses
-- Solid Waste Management
-- Hydrology
-- Railway Engineering
+- CE07324213- Solid Waste Management
+- CE07323211- Hydrology
+- CE07321311- Advanced Surveying
+- CE07324107 - Railway Engineering
 
 ### Lab Courses
-- Fluid Mechanics Lab
+- CE07322212 - Fluid Mechanics Lab
 
 ### Sessional Courses
-- Environmental Engineering Sessional
-- Water Resources Engineering Sessional
-- Structural Engineering Sessional
-- Advanced Surveying
+- CE07324214 - Environmental Engineering Sessional
+- CE07324310 - Water Resource Engineering Sessional
+- CE07323120 - Steel Structure Sessional
+
