@@ -1,4 +1,6 @@
-title: "Abdur Razzak | Lecturer, & Academic Researcher"
-description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling for Environmental Engineering"
+title: "Abdur Razzak Zubaer"
+description: "Civil and Environmental Engineering | Statistical Modeling | Environmental Modeling"
 url: "https://Abdur-Razzak-Zubaer.github.io"
 theme: jekyll-theme-cayman
+sass:
+  style: compressed
