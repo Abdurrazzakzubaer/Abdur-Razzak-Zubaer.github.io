@@ -1,4 +1,11 @@
 
+---
+layout: single
+title: "Projects"
+permalink: /projects/
+author_profile: true
+---
+
 # Projects
 
 This section highlights my professional experience in environmental and social impact assessment, renewable energy, transportation infrastructure, environmental monitoring, and academic research.
