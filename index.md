@@ -3,7 +3,7 @@
 
 [Academic Profiles](Academic.html) ·
 [Research Interests](research.html) ·
-[Experience](experience.html) ·
+[Professional Experience](experience.html) ·
 [Projects](projects.html) ·
 [Publications](publications.html) ·
 [Teaching](teaching.html) ·
