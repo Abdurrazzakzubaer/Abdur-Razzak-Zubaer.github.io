@@ -1,3 +1,10 @@
+---
+layout: single
+title: "Academic Profile"
+permalink: /aprofile/
+author_profile: true
+---
+
 ## Academic Profiles
 
 - [GitHub](https://github.com/Abdurrazzakzubaer)
