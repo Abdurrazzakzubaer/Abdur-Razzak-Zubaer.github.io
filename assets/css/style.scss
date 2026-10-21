@@ -2,43 +2,37 @@
 ---
 ---
 
-$header-bg-color: #0B1F3A;
-$header-bg-color-secondary: #0B1F3A;
-$header-heading-color: #FFFFFF;
-$header-link-color: #FFFFFF;
-$section-headings-color: #0B1F3A;
-$body-text-color: #243247;
-$body-link-color: #15365B;
-$blockquote-text-color: #52657A;
-$blockquote-border-color: #D9E1EA;
-$table-border-color: #D9E1EA;
-$hr-border-color: #D9E1EA;
+@import "jekyll-theme-cayman";
 
-@import "{{ site.theme }}";
-
+/* White page background and dark body text */
+html,
 body,
 .main-content {
-  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
   color: #243247 !important;
 }
 
+/* Navy-blue top banner */
 .page-header {
   background: #0B1F3A !important;
   background-image: none !important;
 }
 
-.project-name,
-.project-tagline,
+/* White title and subtitle */
+.page-header .project-name,
+.page-header .project-tagline,
 .page-header a {
   color: #FFFFFF !important;
 }
 
+/* White buttons with navy text */
 .page-header .btn {
+  background: #FFFFFF !important;
   color: #0B1F3A !important;
-  background-color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
+  border: 1px solid #FFFFFF !important;
 }
 
+/* Navy headings */
 .main-content h1,
 .main-content h2,
 .main-content h3,
@@ -46,21 +40,24 @@ body,
   color: #0B1F3A !important;
 }
 
+/* Navy links */
 .main-content a {
   color: #15365B !important;
 }
 
+/* Navy table headers */
 .main-content table th {
-  background-color: #0B1F3A !important;
+  background: #0B1F3A !important;
   color: #FFFFFF !important;
 }
 
 .main-content table td {
-  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
   color: #243247 !important;
 }
 
+/* White footer */
 .site-footer {
-  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
   color: #0B1F3A !important;
 }
