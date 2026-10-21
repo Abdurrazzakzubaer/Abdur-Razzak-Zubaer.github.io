@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
 
@@ -15,39 +16,84 @@
 
 <body>
 
+<!-- Website Header -->
+
 <header class="header">
+
   <a href="{{ '/' | relative_url }}">
     {{ site.title }}
   </a>
 
+  <!-- Navigation Menu -->
+
   <nav>
-    <a href="{{ '/' | relative_url }}">Home</a>
-    <a href="{{ '/aprofile/' | relative_url }}">Profile</a>
-    <a href="{{ '/research/' | relative_url }}">Research</a>
-    <a href="{{ '/publications/' | relative_url }}">Publications</a>
-    <a href="{{ '/teaching/' | relative_url }}">Teaching</a>
-    <a href="{{ '/projects/' | relative_url }}">Projects</a>
-    <a href="{{ '/cv/' | relative_url }}">CV</a>
+
+    <a href="{{ '/aprofile/' | relative_url }}">
+      Academic Profiles
+    </a>
+
+    <a href="{{ '/research/' | relative_url }}">
+      Research Interests
+    </a>
+
+    <a href="{{ '/experience/' | relative_url }}">
+      Professional Experience
+    </a>
+
+    <a href="{{ '/projects/' | relative_url }}">
+      Projects
+    </a>
+
+    <a href="{{ '/publications/' | relative_url }}">
+      Publications
+    </a>
+
+    <a href="{{ '/teaching/' | relative_url }}">
+      Courses Taught
+    </a>
+
+    <a href="{{ '/cv/' | relative_url }}">
+      CV
+    </a>
+
   </nav>
+
 </header>
+
+<!-- Main Website Layout -->
 
 <div class="page-container">
 
+  <!-- Author Profile Sidebar -->
+
   {% unless page.author_profile == false %}
+
   <aside class="sidebar">
+
     {% include author-profile.html %}
+
   </aside>
+
   {% endunless %}
 
+  <!-- Main Page Content -->
+
   <main class="page-content">
+
     {{ content }}
+
   </main>
 
 </div>
 
+<!-- Website Footer -->
+
 <footer>
-  © {{ site.time | date: '%Y' }}
-  {{ site.author.name }}
+
+  &copy; {{ site.time | date: '%Y' }}
+  {{ site.author.name }}.
+  All rights reserved.
+
 </footer>
 
 </body>
