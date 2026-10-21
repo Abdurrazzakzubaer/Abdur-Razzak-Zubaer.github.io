@@ -1,0 +1,80 @@
+
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Academic portfolio: navy blue and white */
+
+:root {
+  --navy: #0B1F3A;
+  --navy-light: #15365B;
+  --white: #FFFFFF;
+  --text: #243247;
+}
+
+/* Main page */
+body {
+  background-color: var(--white);
+  color: var(--text);
+}
+
+/* Header banner */
+.page-header {
+  background-color: var(--navy);
+  background-image: none;
+  color: var(--white);
+}
+
+/* Main title and description */
+.project-name,
+.project-tagline {
+  color: var(--white);
+}
+
+/* Navigation buttons */
+.btn {
+  color: var(--navy);
+  background-color: var(--white);
+  border-color: var(--white);
+  border-radius: 6px;
+}
+
+.btn:hover {
+  color: var(--white);
+  background-color: var(--navy-light);
+  border-color: var(--white);
+}
+
+/* Content headings */
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  color: var(--navy);
+}
+
+/* Links */
+.main-content a {
+  color: var(--navy-light);
+  font-weight: 500;
+}
+
+.main-content a:hover {
+  color: var(--navy);
+}
+
+/* Tables */
+.main-content table th {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.main-content table td {
+  background-color: var(--white);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #D9E1EA;
+  color: var(--navy);
+}
