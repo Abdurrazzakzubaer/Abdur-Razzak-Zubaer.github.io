@@ -17,7 +17,9 @@ author:
   name: "Abdur Razzak Zubaer"
   bio: "Lecturer | Academic Researcher | Individual Consultant"
   location: "Dhaka, Bangladesh"
-  
+  googlescholar: "https://scholar.google.com/citations?user=k_MgNaEAAAAJ&hl=en"
+  orcid: "https://orcid.org/0009-0003-7472-3922"
+
 # Site settings
 breadcrumbs: true
 words_per_minute: 160
@@ -38,6 +40,8 @@ social:
   name: "Abdur Razzak Zubaer"
   links:
     - "https://github.com/Abdurrazzakzubaer"
+    - "https://scholar.google.com/citations?user=k_MgNaEAAAAJ&hl=en"
+    - "https://orcid.org/0009-0003-7472-3922"
 
 # Files and pages
 include:
