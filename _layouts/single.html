@@ -1072,44 +1072,107 @@
   </script>
 
 
-  <!-- Keep dark-mode text readable on cards with light backgrounds. -->
+  <!-- Accessibility: correct insufficient text contrast in dark mode.
+       This covers pale cards, sidebar labels, and dark action buttons,
+       including elements styled by individual page stylesheets. -->
   <script>
     (function () {
       'use strict';
 
-      function isPaleBackground(value) {
-        var m = value && value.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
-        if (!m) return false;
-        var alpha = m[4] === undefined ? 1 : Number(m[4]);
-        if (alpha < 0.9) return false;
-        var r = Number(m[1]), g = Number(m[2]), b = Number(m[3]);
-        // The threshold identifies white / pastel cards, not dark surfaces.
-        return (0.2126 * r + 0.7152 * g + 0.0722 * b) > 188;
+      var root = document.documentElement;
+      var originals = new Map();
+
+      function rgb(value) {
+        var m = String(value).match(/^rgba?\(\s*([\d.]+)\s*[, ]\s*([\d.]+)\s*[, ]\s*([\d.]+)(?:\s*[, /]\s*([\d.]+))?\s*\)$/i);
+        if (!m) return null;
+        return [Number(m[1]), Number(m[2]), Number(m[3]), m[4] === undefined ? 1 : Number(m[4])];
       }
 
-      function updateCardContrast() {
-        var dark = document.documentElement.getAttribute('data-arz-theme') === 'dark';
-        var all = document.querySelectorAll(
-          '.arz-layout-content *, .arz-layout-sidebar *'
-        );
-        all.forEach(function (element) {
-          if (!dark) {
-            element.removeAttribute('data-arz-light-surface');
-            return;
-          }
-          var css = window.getComputedStyle(element);
-          if (isPaleBackground(css.backgroundColor)) {
-            element.setAttribute('data-arz-light-surface', 'true');
+      function blend(foreground, background) {
+        var a = foreground[3];
+        return [
+          a * foreground[0] + (1 - a) * background[0],
+          a * foreground[1] + (1 - a) * background[1],
+          a * foreground[2] + (1 - a) * background[2]
+        ];
+      }
+
+      function backgroundBehind(element) {
+        var layers = [];
+        var node = element;
+        while (node && node.nodeType === 1) {
+          var color = rgb(getComputedStyle(node).backgroundColor);
+          if (color && color[3] > 0) layers.push(color);
+          node = node.parentElement;
+        }
+        var base = [11, 20, 36]; // Dark mode page background.
+        for (var i = layers.length - 1; i >= 0; i--) {
+          base = blend(layers[i], base);
+        }
+        return base;
+      }
+
+      function luminance(color) {
+        var linear = color.slice(0, 3).map(function (v) {
+          var c = v / 255;
+          return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        });
+        return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
+      }
+
+      function ratio(a, b) {
+        var x = luminance(a), y = luminance(b);
+        return (Math.max(x, y) + .05) / (Math.min(x, y) + .05);
+      }
+
+      function restore() {
+        originals.forEach(function (previous, el) {
+          if (!el.isConnected) return;
+          if (previous.value) {
+            el.style.setProperty('color', previous.value, previous.priority);
           } else {
-            element.removeAttribute('data-arz-light-surface');
+            el.style.removeProperty('color');
           }
+        });
+        originals.clear();
+      }
+
+      function fixContrast() {
+        restore();
+        if (root.getAttribute('data-arz-theme') !== 'dark') return;
+
+        // Check actual rendered colors rather than assuming all cards are dark.
+        document.querySelectorAll('.arz-site *').forEach(function (el) {
+          if (el.matches('script, style, svg, path, option, noscript')) return;
+          if (!Array.from(el.childNodes).some(function (node) {
+            return node.nodeType === 3 && node.textContent.trim();
+          })) return;
+
+          var fg = rgb(getComputedStyle(el).color);
+          if (!fg) return;
+          var bg = backgroundBehind(el);
+          var displayedFg = blend(fg, bg);
+
+          if (ratio(displayedFg, bg) >= 4.5) return;
+
+          // Navy on light surfaces; soft white on dark surfaces.
+          var navy = [23, 43, 67];
+          var white = [241, 245, 249];
+          var target = ratio(navy, bg) >= ratio(white, bg)
+            ? '#172b43' : '#f1f5f9';
+
+          originals.set(el, {
+            value: el.style.getPropertyValue('color'),
+            priority: el.style.getPropertyPriority('color')
+          });
+          el.style.setProperty('color', target, 'important');
         });
       }
 
-      // Runs after the existing toggle's click handler changes the theme.
+      // The existing theme listener runs first, then rechecks contrast.
       var toggle = document.getElementById('arz-theme-toggle');
-      if (toggle) toggle.addEventListener('click', updateCardContrast);
-      updateCardContrast();
+      if (toggle) toggle.addEventListener('click', fixContrast);
+      fixContrast();
     })();
   </script>
 
