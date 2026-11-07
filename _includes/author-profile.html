@@ -1,15 +1,421 @@
+<!-- =========================================
+     AUTHOR PROFILE
+     Abdur Razzak Zubaer
+     Professional Academic Portfolio
+========================================= -->
 
-<div class="author-profile">
+<style>
+/* ================================
+   AUTHOR SIDEBAR DESIGN
+================================ */
 
-  <img
-    src="{{ site.author.avatar }}"
-    alt="{{ site.author.name | escape }}"
-    class="author-avatar">
+.arz-author {
+  --ap-primary: #173b68;
+  --ap-dark: #102d50;
+  --ap-accent: #2877c7;
+  --ap-muted: #61758a;
+  --ap-border: #e1e9f2;
 
-  <h2>{{ site.author.name }}</h2>
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 30px 23px;
 
-  <p>{{ site.author.bio }}</p>
+  background: #ffffff;
+  border: 1px solid var(--ap-border);
+  border-radius: 18px;
 
-  <p>📍 {{ site.author.location }}</p>
+  box-shadow: 0 5px 22px rgba(20,48,82,.06);
 
-</div>
+  text-align: center;
+  color: #263b50;
+
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.arz-author,
+.arz-author *,
+.arz-author *::before,
+.arz-author *::after {
+  box-sizing: border-box;
+}
+
+.arz-author:hover {
+  transform: translateY(-3px);
+  border-color: #c9daeb;
+  box-shadow: 0 13px 32px rgba(20,48,82,.1);
+}
+
+/* Profile photograph */
+
+.arz-author .ap-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.arz-author .ap-avatar {
+  display: block;
+  width: 175px;
+  height: 175px;
+  max-width: 100%;
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 4px solid #e5eff9;
+
+  box-shadow: 0 6px 22px rgba(20,48,82,.12);
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+}
+
+.arz-author:hover .ap-avatar {
+  transform: scale(1.035);
+  box-shadow: 0 10px 28px rgba(20,48,82,.17);
+}
+
+/* Name and details */
+
+.arz-author .ap-name {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+
+  color: var(--ap-primary);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.arz-author .ap-bio {
+  margin: 0 0 18px;
+  color: #4e647a;
+  font-size: .87rem;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.arz-author .ap-divider {
+  width: 54px;
+  height: 3px;
+  margin: 19px auto;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--ap-accent),
+    #168b89
+  );
+}
+
+/* Contact information */
+
+.arz-author .ap-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.arz-author .ap-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+
+  border: 1px solid #e5edf5;
+  border-radius: 10px;
+  background: #f8fbff;
+
+  color: #385572;
+  font-size: .83rem;
+  line-height: 1.5;
+  text-align: left;
+
+  text-decoration: none !important;
+  overflow-wrap: anywhere;
+
+  transition:
+    transform .28s ease,
+    background-color .28s ease,
+    border-color .28s ease,
+    color .28s ease;
+}
+
+.arz-author a.ap-contact-item:hover {
+  transform: translateX(3px);
+  background: #edf5ff;
+  border-color: #bdd6ed;
+  color: var(--ap-primary);
+}
+
+.arz-author .ap-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+
+  background: #e5f0fc;
+  color: var(--ap-accent);
+}
+
+.arz-author .ap-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arz-author .ap-contact-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.arz-author .ap-contact-label {
+  display: block;
+  color: #73869a;
+  font-size: .7rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.arz-author .ap-contact-value {
+  display: block;
+  color: var(--ap-primary);
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+/* Email addresses button */
+
+.arz-author .ap-email-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 15px;
+  margin-top: 19px;
+
+  background: var(--ap-primary);
+  color: #ffffff !important;
+
+  border: 1px solid var(--ap-primary);
+  border-radius: 10px;
+
+  font-size: .86rem;
+  font-weight: 750;
+  text-decoration: none !important;
+
+  transition:
+    background-color .28s ease,
+    transform .28s ease,
+    box-shadow .28s ease;
+}
+
+.arz-author .ap-email-btn:hover {
+  background: #245b94;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 19px rgba(23,59,104,.2);
+}
+
+/* Footer note */
+
+.arz-author .ap-footer {
+  margin: 17px 0 0;
+  color: #8a9aad;
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+/* Accessibility */
+
+.arz-author a:focus-visible {
+  outline: 3px solid #6ca9ea;
+  outline-offset: 3px;
+}
+
+/* Mobile responsive styling */
+
+@media (max-width: 767px) {
+
+  .arz-author {
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .arz-author .ap-avatar {
+    width: 145px;
+    height: 145px;
+  }
+
+  .arz-author .ap-name {
+    font-size: 1.23rem;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .arz-author,
+  .arz-author *,
+  .arz-author *::before,
+  .arz-author *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+</style>
+
+<aside class="arz-author author-profile"
+       aria-label="Author profile">
+
+  <!-- Profile Picture -->
+
+  <div class="ap-avatar-wrap">
+
+    <img
+      src="{{ site.author.avatar | relative_url }}"
+      alt="{{ site.author.name | escape }}"
+      class="ap-avatar"
+      width="175"
+      height="175"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </div>
+
+  <!-- Name -->
+
+  <h2 class="ap-name">
+    {{ site.author.name }}
+  </h2>
+
+  <!-- Biography -->
+
+  <p class="ap-bio">
+    {{ site.author.bio }}
+  </p>
+
+  <hr class="ap-divider">
+
+  <!-- Contact Information -->
+
+  <div class="ap-contact">
+
+    <!-- Location -->
+
+    <div class="ap-contact-item">
+
+      <span class="ap-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+      </span>
+
+      <span class="ap-contact-text">
+        <span class="ap-contact-label">Location</span>
+        <span class="ap-contact-value">
+          {{ site.author.location }}
+        </span>
+      </span>
+
+    </div>
+
+    <!-- Mobile Number -->
+
+    <a
+      href="tel:+8801853399055"
+      class="ap-contact-item"
+      aria-label="Call +8801853399055"
+    >
+
+      <span class="ap-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/>
+          <path d="M10 18h4"/>
+        </svg>
+      </span>
+
+      <span class="ap-contact-text">
+        <span class="ap-contact-label">Mobile Number</span>
+        <span class="ap-contact-value">
+          +880 1853-399055
+        </span>
+      </span>
+
+    </a>
+
+  </div>
+
+  <!-- Email Addresses -->
+
+  <a
+    href="{{ '/' | relative_url }}#contact"
+    class="ap-email-btn"
+    aria-label="View all email addresses"
+  >
+
+    <!-- Email Icon -->
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2"/>
+      <path d="m3 7 9 6 9-6"/>
+    </svg>
+
+    Email Addresses
+
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14"/>
+      <path d="m13 6 6 6-6 6"/>
+    </svg>
+
+  </a>
+
+  <p class="ap-footer">
+    Academic &amp; Professional Portfolio
+  </p>
+
+</aside>
