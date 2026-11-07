@@ -4,9 +4,6 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-<!-- Bootstrap grid and Bootstrap Icons; remove if already loaded globally -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 /* Scoped to this page. Content always remains visible. */
 .arz-pubs{--navy:#102d50;--blue:#2877c7;--teal:#168b89;--muted:#596d81;--line:#dfe8f1;--soft:#f6f9fd;color:#263b52;width:100%}
@@ -24,8 +21,8 @@ author_profile: true
 .arz-pubs .pub-section-heading i{display:grid;place-items:center;flex:none;width:43px;height:43px;border-radius:11px;background:#eaf3ff;color:var(--blue);font-size:1.2rem}
 .arz-pubs .pub-section-heading h2{font-size:1.35rem;color:var(--navy);border:0;padding:0;margin:0}
 /* Native grid fallback works even when Bootstrap CDN is unavailable */
-.arz-pubs .pub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0}
-.arz-pubs .pub-grid>[class*="col-"]{padding:0;width:auto;max-width:none;flex:none}
+.arz-pubs .pub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0;width:100%}
+.arz-pubs .pub-grid>[class*="col-"]{padding:0;width:auto;max-width:none;flex:none;min-width:0}
 .arz-pubs .pub-card{height:100%;display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:14px;padding:23px;box-shadow:0 4px 17px rgba(17,48,81,.045);animation:pub-enter .55s ease-out both;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .arz-pubs .pub-card:hover{transform:translateY(-4px);box-shadow:0 13px 30px rgba(17,48,81,.10);border-color:#bad3e8}
 .arz-pubs .pub-conference .pub-card{border-top-color:var(--teal)}
