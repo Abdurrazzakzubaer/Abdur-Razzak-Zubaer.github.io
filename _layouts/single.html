@@ -594,7 +594,144 @@
 
     }
 
+
+    /* =========================================================
+       ARZ GLOBAL LIGHT / DARK THEME
+       Controlled by data-arz-theme on the html element.
+       This shared layout applies to every page using layout: single.
+       ========================================================= */
+    body.arz-site {
+      --arz-surface: #ffffff;
+      --arz-surface-alt: #eff5fb;
+      --arz-body-text: #293e53;
+      --arz-nav-text: #385573;
+      --arz-header-bg: rgba(255, 255, 255, .98);
+      --arz-hover-bg: #eaf3ff;
+      --arz-shadow: rgba(18,48,82,.07);
+    }
+
+    html[data-arz-theme="dark"] body.arz-site {
+      color-scheme: dark;
+      --arz-primary: #a9cffb;
+      --arz-dark: #111e32;
+      --arz-accent: #83baf5;
+      --arz-muted: #b6c5d8;
+      --arz-border: #34465f;
+      --arz-background: #0b1424;
+      --arz-surface: #17263a;
+      --arz-surface-alt: #253850;
+      --arz-body-text: #e2eaf5;
+      --arz-nav-text: #d6e4f5;
+      --arz-header-bg: rgba(18, 32, 50, .98);
+      --arz-hover-bg: #2a4260;
+      --arz-shadow: rgba(0,0,0,.20);
+      background: var(--arz-background);
+      color: var(--arz-body-text);
+    }
+
+    /* Shared shell. Use this layout's actual class names. */
+    html[data-arz-theme="dark"] .arz-site .arz-site-header {
+      background: var(--arz-header-bg);
+      border-color: var(--arz-border);
+      box-shadow: 0 3px 18px var(--arz-shadow);
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content,
+    html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav {
+      background: var(--arz-surface);
+      color: var(--arz-body-text);
+      border-color: var(--arz-border);
+      box-shadow: 0 5px 22px var(--arz-shadow);
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-site-brand,
+    html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a,
+    html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a {
+      color: var(--arz-nav-text) !important;
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a:hover,
+    html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a[aria-current="page"],
+    html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a:hover,
+    html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a[aria-current="page"] {
+      background: var(--arz-hover-bg);
+      color: #ffffff !important;
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-mobile-menu summary {
+      background: var(--arz-surface-alt);
+      color: var(--arz-body-text);
+      border-color: var(--arz-border);
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6,p,li,small),
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,p,li,small) {
+      color: var(--arz-body-text);
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a {
+      color: #9bc8ff;
+    }
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(table,th,td,pre,code,blockquote,input,textarea,select) {
+      background-color: var(--arz-surface-alt);
+      color: var(--arz-body-text);
+      border-color: var(--arz-border);
+    }
+    /* Portfolio pages with their own card styles. */
+    html[data-arz-theme="dark"] .arz-site :is(.pub-card,.pub-hero,.pub-stat,.pub-grid-cell,.archive__item,.feature__item) {
+      background: var(--arz-surface-alt);
+      border-color: var(--arz-border);
+      color: var(--arz-body-text);
+    }
+    html[data-arz-theme="dark"] .arz-site :is(.pub-card,.pub-hero,.pub-stat) :is(h1,h2,h3,p,span,em,strong) {
+      color: var(--arz-body-text);
+    }
+    html[data-arz-theme="dark"] .arz-site .pub-link { color: #9bc8ff; }
+    /* Keep the footer legible. */
+    html[data-arz-theme="dark"] .arz-site .arz-site-footer { background: #101c2e; }
+
+    /* Visible site-wide theme control. */
+    .arz-site .arz-theme-toggle {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 2000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 16px;
+      background: var(--arz-surface);
+      color: var(--arz-body-text);
+      border: 1px solid var(--arz-border);
+      border-radius: 999px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.18);
+      font: inherit;
+      font-size: .88rem;
+      font-weight: 700;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+    .arz-site .arz-theme-toggle:hover { background: var(--arz-surface-alt); }
+    .arz-site .arz-theme-toggle:focus-visible {
+      outline: 3px solid #75baff;
+      outline-offset: 3px;
+    }
+    .arz-site .arz-theme-toggle i { font-size: 1.1rem; }
+    @media (max-width: 575px) {
+      .arz-site .arz-theme-toggle { padding: 10px 13px; font-size: .8rem; }
+    }
+
   </style>
+
+
+  <!-- Apply preferred theme before painting to avoid a light-theme flash. -->
+  <script>
+    (function () {
+      var selected = null;
+      try { selected = localStorage.getItem('arz-site-theme'); } catch (e) {}
+      if (selected !== 'light' && selected !== 'dark') {
+        selected = window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-arz-theme', selected);
+    })();
+  </script>
 
 </head>
 
@@ -794,6 +931,14 @@
 
   </div>
 
+
+  <!-- Theme toggle appears on every page using this layout. -->
+  <button type="button" id="arz-theme-toggle" class="arz-theme-toggle"
+          aria-label="Switch to dark mode" aria-pressed="false">
+    <i class="bi bi-moon-stars" aria-hidden="true"></i>
+    <span class="arz-theme-label">Dark Mode</span>
+  </button>
+
   <!-- WEBSITE FOOTER -->
 
   <footer class="arz-site-footer">
@@ -838,6 +983,36 @@
     </div>
 
   </footer>
+
+
+  <script>
+    (function () {
+      'use strict';
+      var root = document.documentElement;
+      var button = document.getElementById('arz-theme-toggle');
+      if (!button) return;
+      var icon = button.querySelector('i');
+      var label = button.querySelector('.arz-theme-label');
+      var key = 'arz-site-theme';
+
+      function render() {
+        var isDark = root.getAttribute('data-arz-theme') === 'dark';
+        icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars';
+        label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        button.setAttribute('aria-pressed', String(isDark));
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isDark ? '#0b1424' : '#102d50');
+      }
+      button.addEventListener('click', function () {
+        var next = root.getAttribute('data-arz-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-arz-theme', next);
+        try { localStorage.setItem(key, next); } catch (e) {}
+        render();
+      });
+      render();
+    })();
+  </script>
 
 </body>
 </html>
