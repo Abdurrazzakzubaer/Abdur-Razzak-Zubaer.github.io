@@ -1,0 +1,220 @@
+
+<!-- ARZ GLOBAL LIGHT / DARK MODE -->
+
+<style>
+:root {
+  --arz-bg: #ffffff;
+  --arz-card: #f8fafc;
+  --arz-text: #1e293b;
+  --arz-border: #e2e8f0;
+  --arz-link: #2563eb;
+}
+
+html[data-arz-theme="dark"] {
+  color-scheme: dark;
+  --arz-bg: #0f172a;
+  --arz-card: #1e293b;
+  --arz-text: #f1f5f9;
+  --arz-border: #334155;
+  --arz-link: #93c5fd;
+}
+
+html[data-arz-theme="dark"],
+html[data-arz-theme="dark"] body,
+html[data-arz-theme="dark"] #main,
+html[data-arz-theme="dark"] .initial-content,
+html[data-arz-theme="dark"] .page,
+html[data-arz-theme="dark"] .archive {
+  background-color: var(--arz-bg);
+  color: var(--arz-text);
+}
+
+html[data-arz-theme="dark"] .masthead,
+html[data-arz-theme="dark"] .greedy-nav,
+html[data-arz-theme="dark"] .page__footer,
+html[data-arz-theme="dark"] .sidebar,
+html[data-arz-theme="dark"] .pub-card,
+html[data-arz-theme="dark"] .pub-hero,
+html[data-arz-theme="dark"] .pub-stat,
+html[data-arz-theme="dark"] .archive__item {
+  background-color: var(--arz-card);
+  background-image: none;
+  color: var(--arz-text);
+  border-color: var(--arz-border);
+}
+
+html[data-arz-theme="dark"] h1,
+html[data-arz-theme="dark"] h2,
+html[data-arz-theme="dark"] h3,
+html[data-arz-theme="dark"] h4,
+html[data-arz-theme="dark"] p,
+html[data-arz-theme="dark"] li,
+html[data-arz-theme="dark"] .page__content,
+html[data-arz-theme="dark"] .page__title,
+html[data-arz-theme="dark"] .pub-venue,
+html[data-arz-theme="dark"] .pub-note {
+  color: var(--arz-text);
+}
+
+html[data-arz-theme="dark"] a {
+  color: var(--arz-link);
+}
+
+html[data-arz-theme="dark"] .masthead a,
+html[data-arz-theme="dark"] .greedy-nav a {
+  color: var(--arz-text);
+}
+
+html[data-arz-theme="dark"] table,
+html[data-arz-theme="dark"] th,
+html[data-arz-theme="dark"] td,
+html[data-arz-theme="dark"] input,
+html[data-arz-theme="dark"] textarea {
+  background-color: var(--arz-card);
+  color: var(--arz-text);
+  border-color: var(--arz-border);
+}
+
+/* Floating theme button */
+
+#arz-global-theme-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10000;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--arz-border);
+  background: var(--arz-card);
+  color: var(--arz-text);
+  box-shadow: 0 5px 20px rgba(0,0,0,.18);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color .25s,
+    color .25s,
+    transform .25s;
+}
+
+#arz-global-theme-toggle:hover {
+  transform: translateY(-3px);
+}
+
+#arz-global-theme-toggle:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+@media(max-width:600px) {
+  #arz-global-theme-toggle {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 13px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  #arz-global-theme-toggle {
+    transition: none;
+  }
+}
+</style>
+
+<script>
+(function() {
+  "use strict";
+
+  const root = document.documentElement;
+  const storageKey = "arz-global-theme";
+
+  function getSavedTheme() {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch(e) {
+      return null;
+    }
+  }
+
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(storageKey, theme);
+    } catch(e) {}
+  }
+
+  const savedTheme = getSavedTheme();
+
+  const systemDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  const initialTheme =
+    savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : systemDark ? "dark" : "light";
+
+  root.setAttribute("data-arz-theme", initialTheme);
+
+  function updateButton() {
+    const button = document.getElementById(
+      "arz-global-theme-toggle"
+    );
+
+    if (!button) return;
+
+    const dark = root.getAttribute(
+      "data-arz-theme"
+    ) === "dark";
+
+    button.textContent = dark
+      ? "☀️ Light Mode"
+      : "🌙 Dark Mode";
+
+    button.setAttribute(
+      "aria-label",
+      dark ? "Switch to light mode" : "Switch to dark mode"
+    );
+
+    button.setAttribute("aria-pressed", String(dark));
+  }
+
+  function initializeThemeButton() {
+    if (document.getElementById(
+      "arz-global-theme-toggle"
+    )) return;
+
+    const button = document.createElement("button");
+
+    button.id = "arz-global-theme-toggle";
+    button.type = "button";
+
+    document.body.appendChild(button);
+
+    updateButton();
+
+    button.addEventListener("click", function() {
+      const current = root.getAttribute(
+        "data-arz-theme"
+      );
+
+      const next = current === "dark"
+        ? "light" : "dark";
+
+      root.setAttribute("data-arz-theme", next);
+
+      saveTheme(next);
+      updateButton();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeThemeButton
+    );
+  } else {
+    initializeThemeButton();
+  }
+})();
+</script>
