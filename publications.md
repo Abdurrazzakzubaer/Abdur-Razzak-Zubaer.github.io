@@ -86,7 +86,7 @@ author_profile: true
 </div>
 <div class="pub-grid-cell">
 <article class="pub-card">
-<div class="pub-card-top"><span class="pub-num">09</span><span class="pub-year">2024</span></div>
+<div class="pub-card-top"><span class="pub-num">09</span><span class="pub-year">2025</span></div>
 <h3>Impact of Code Changes on The Design of RC Frame Structure</h3>
 <p class="pub-venue"><em>Open Journal of Civil Engineering</em></p>
 <div class="pub-actions"><a aria-label="Open DOI for publication 9" class="pub-link" href="https://doi.org/10.4236/ojce.2025.152010" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-box-arrow-up-right"></i> View publication / DOI</a></div>
