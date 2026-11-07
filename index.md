@@ -652,7 +652,7 @@ author_profile: true
             </div>
 
             <div class="arz-degree-level">
-              Master's Degree
+              Postgraduate Studies
             </div>
 
             <h3>MSc in Environmental Science and Management</h3>
