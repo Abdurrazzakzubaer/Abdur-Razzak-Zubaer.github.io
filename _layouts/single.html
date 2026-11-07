@@ -714,64 +714,35 @@
     }
 
 
-    /* =====================================================
-       CONTRAST-SAFE DARK MODE
-       Dark shell = light text; light cards = dark text.
-       Existing font sizes and line heights are preserved.
-       ===================================================== */
-    html[data-arz-theme="dark"] .arz-site .arz-layout-content,
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar {
-      color: #d8e3f0;
-    }
 
-    /* Titles outside light cards remain clear on dark panels. */
-    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6),
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,h5,h6) {
-      color: #f8fafc;
-    }
-
-    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p,li,dd,dt,small,figcaption),
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p,li,dd,dt,small,figcaption) {
-      color: #d8e3f0;
-    }
-
-    html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a {
-      color: #93c5fd;
-    }
-
-    /* A white / pale card must NOT contain pale writing.
-       The script adds data-arz-light-surface to pale panels. */
-    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"] {
-      color: #213247 !important;
-    }
-
-    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
-      :is(h1,h2,h3,h4,h5,h6,p,li,dd,dt,small,span,strong,em,figcaption,blockquote) {
-      color: #213247 !important;
-    }
-
-    /* Darker titles distinguish hierarchy on white panels. */
-    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
-      :is(h1,h2,h3,h4,h5,h6,strong) {
+    /* ============================================================
+       TWO-COLOR TEXT CONTRAST SYSTEM
+       Only two font colors are used on all pages:
+       navy (#102D50) for light backgrounds and
+       white (#FFFFFF) for dark backgrounds.
+       Backgrounds, spacing and font sizes are unchanged.
+       ============================================================ */
+    .arz-site [data-arz-ink="navy"] {
       color: #102d50 !important;
     }
-
-    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"] a {
-      color: #14518d !important;
+    .arz-site [data-arz-ink="white"] {
+      color: #ffffff !important;
     }
-
-    /* Do not restyle contrasting button/badge text inside pale cards. */
-    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
-      :is(button,button *, .badge,.badge *,[class*="-badge"],[class*="-badge"] *,
-           [class*="-pill"],[class*="-pill"] *) {
-      color: inherit;
+    .arz-site [data-arz-ink="navy"]::before,
+    .arz-site [data-arz-ink="navy"]::after {
+      color: #102d50 !important;
     }
-
-    /* The author profile often contains a separate white card. */
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar
-      [data-arz-light-surface="true"] a {
-      color: #14518d !important;
+    .arz-site [data-arz-ink="white"]::before,
+    .arz-site [data-arz-ink="white"]::after {
+      color: #ffffff !important;
+    }
+    .arz-site [data-arz-ink="navy"]::placeholder {
+      color: #102d50 !important;
+      opacity: 1;
+    }
+    .arz-site [data-arz-ink="white"]::placeholder {
+      color: #ffffff !important;
+      opacity: 1;
     }
 
   </style>
@@ -1072,107 +1043,89 @@
   </script>
 
 
-  <!-- Accessibility: correct insufficient text contrast in dark mode.
-       This covers pale cards, sidebar labels, and dark action buttons,
-       including elements styled by individual page stylesheets. -->
+  <!-- Two-color text mapping: uses the element's rendered background, not its page name.
+       Applies to Home, CV, Research, Publications, Academic Profile and other single-layout pages. -->
   <script>
     (function () {
       'use strict';
 
+      var NAVY = [16, 45, 80];  // #102d50
+      var WHITE = [255, 255, 255]; // #ffffff
       var root = document.documentElement;
-      var originals = new Map();
 
-      function rgb(value) {
-        var m = String(value).match(/^rgba?\(\s*([\d.]+)\s*[, ]\s*([\d.]+)\s*[, ]\s*([\d.]+)(?:\s*[, /]\s*([\d.]+))?\s*\)$/i);
-        if (!m) return null;
-        return [Number(m[1]), Number(m[2]), Number(m[3]), m[4] === undefined ? 1 : Number(m[4])];
+      function parseRgb(value) {
+        var match = String(value).match(
+          /^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s/]+([\d.]+))?\s*\)$/i
+        );
+        if (!match) return null;
+        return [Number(match[1]), Number(match[2]), Number(match[3]),
+          match[4] === undefined ? 1 : Number(match[4])];
       }
 
-      function blend(foreground, background) {
-        var a = foreground[3];
+      function blend(top, bottom) {
+        var a = top[3];
         return [
-          a * foreground[0] + (1 - a) * background[0],
-          a * foreground[1] + (1 - a) * background[1],
-          a * foreground[2] + (1 - a) * background[2]
+          top[0] * a + bottom[0] * (1 - a),
+          top[1] * a + bottom[1] * (1 - a),
+          top[2] * a + bottom[2] * (1 - a)
         ];
       }
 
-      function backgroundBehind(element) {
+      function effectiveBackground(element) {
         var layers = [];
         var node = element;
         while (node && node.nodeType === 1) {
-          var color = rgb(getComputedStyle(node).backgroundColor);
+          var color = parseRgb(getComputedStyle(node).backgroundColor);
           if (color && color[3] > 0) layers.push(color);
           node = node.parentElement;
         }
-        var base = [11, 20, 36]; // Dark mode page background.
+        // Canvas/background fallback appropriate to selected site mode.
+        var result = root.getAttribute('data-arz-theme') === 'dark'
+          ? [11, 20, 36] : [246, 249, 252];
         for (var i = layers.length - 1; i >= 0; i--) {
-          base = blend(layers[i], base);
+          result = blend(layers[i], result);
         }
-        return base;
+        return result;
       }
 
-      function luminance(color) {
-        var linear = color.slice(0, 3).map(function (v) {
+      function luminance(rgb) {
+        var values = rgb.map(function (v) {
           var c = v / 255;
           return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
         });
-        return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
+        return .2126 * values[0] + .7152 * values[1] + .0722 * values[2];
       }
 
-      function ratio(a, b) {
-        var x = luminance(a), y = luminance(b);
-        return (Math.max(x, y) + .05) / (Math.min(x, y) + .05);
+      function contrast(foreground, background) {
+        var a = luminance(foreground), b = luminance(background);
+        return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
       }
 
-      function restore() {
-        originals.forEach(function (previous, el) {
-          if (!el.isConnected) return;
-          if (previous.value) {
-            el.style.setProperty('color', previous.value, previous.priority);
-          } else {
-            el.style.removeProperty('color');
-          }
-        });
-        originals.clear();
+      function containsText(element) {
+        if (element.matches('input,textarea,select,button,i,label,summary')) return true;
+        for (var i = 0; i < element.childNodes.length; i++) {
+          var node = element.childNodes[i];
+          if (node.nodeType === 3 && node.textContent.trim()) return true;
+        }
+        return false;
       }
 
-      function fixContrast() {
-        restore();
-        if (root.getAttribute('data-arz-theme') !== 'dark') return;
-
-        // Check actual rendered colors rather than assuming all cards are dark.
-        document.querySelectorAll('.arz-site *').forEach(function (el) {
-          if (el.matches('script, style, svg, path, option, noscript')) return;
-          if (!Array.from(el.childNodes).some(function (node) {
-            return node.nodeType === 3 && node.textContent.trim();
-          })) return;
-
-          var fg = rgb(getComputedStyle(el).color);
-          if (!fg) return;
-          var bg = backgroundBehind(el);
-          var displayedFg = blend(fg, bg);
-
-          if (ratio(displayedFg, bg) >= 4.5) return;
-
-          // Navy on light surfaces; soft white on dark surfaces.
-          var navy = [23, 43, 67];
-          var white = [241, 245, 249];
-          var target = ratio(navy, bg) >= ratio(white, bg)
-            ? '#172b43' : '#f1f5f9';
-
-          originals.set(el, {
-            value: el.style.getPropertyValue('color'),
-            priority: el.style.getPropertyPriority('color')
-          });
-          el.style.setProperty('color', target, 'important');
+      function updateTextContrast() {
+        document.querySelectorAll('.arz-site *').forEach(function (element) {
+          if (element.matches('script,style,svg,path,noscript,canvas,iframe')) return;
+          if (!containsText(element)) return;
+          var background = effectiveBackground(element);
+          var ink = contrast(NAVY, background) >= contrast(WHITE, background)
+            ? 'navy' : 'white';
+          element.setAttribute('data-arz-ink', ink);
         });
       }
 
-      // The existing theme listener runs first, then rechecks contrast.
-      var toggle = document.getElementById('arz-theme-toggle');
-      if (toggle) toggle.addEventListener('click', fixContrast);
-      fixContrast();
+      // The existing theme-switch click handler runs first.
+      var themeButton = document.getElementById('arz-theme-toggle');
+      if (themeButton) themeButton.addEventListener('click', updateTextContrast);
+      updateTextContrast();
+      window.addEventListener('load', updateTextContrast);
     })();
   </script>
 
