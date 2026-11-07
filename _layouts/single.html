@@ -659,10 +659,6 @@
       color: var(--arz-body-text);
       border-color: var(--arz-border);
     }
-    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6,p,li,small),
-    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,p,li,small) {
-      color: var(--arz-body-text);
-    }
     html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
     html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a {
       color: #9bc8ff;
@@ -718,72 +714,65 @@
     }
 
 
-/* =====================================================
-   DARK MODE FONT COLORS — NO TYPOGRAPHY OR LAYOUT CHANGES
-   Light mode remains exactly as it was.
-   ===================================================== */
+    /* =====================================================
+       CONTRAST-SAFE DARK MODE
+       Dark shell = light text; light cards = dark text.
+       Existing font sizes and line heights are preserved.
+       ===================================================== */
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content,
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar {
+      color: #d8e3f0;
+    }
 
-/* Default text in the main content and author profile. */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content,
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar {
-  color: #d8e3f0;
-}
+    /* Titles outside light cards remain clear on dark panels. */
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6),
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,h5,h6) {
+      color: #f8fafc;
+    }
 
-/* Headings get the strongest contrast against dark surfaces. */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6),
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,h5,h6),
-html[data-arz-theme="dark"] .arz-site .pub-card h3,
-html[data-arz-theme="dark"] .arz-site .pub-stat strong {
-  color: #f8fafc !important;
-}
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p,li,dd,dt,small,figcaption),
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p,li,dd,dt,small,figcaption) {
+      color: #d8e3f0;
+    }
 
-/* Descriptive text: account for custom per-page CSS colors. */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p,li,dd,dt,blockquote),
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p,li,dd,dt),
-html[data-arz-theme="dark"] .arz-site :is(.pub-venue,.pub-note,.pub-location,.author__bio,.page__meta,.archive__item-excerpt,figcaption) {
-  color: #d8e3f0 !important;
-}
+    html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a {
+      color: #93c5fd;
+    }
 
-/* Subtle metadata should remain legible, not washed out. */
-html[data-arz-theme="dark"] .arz-site :is(.pub-year,.pub-num,.pub-stat span,.author__urls,.page__date) {
-  color: #cbd5e1 !important;
-}
+    /* A white / pale card must NOT contain pale writing.
+       The script adds data-arz-light-surface to pale panels. */
+    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"] {
+      color: #213247 !important;
+    }
 
-/* Links remain visibly distinct from ordinary text. */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a,
-html[data-arz-theme="dark"] .arz-site .pub-link,
-html[data-arz-theme="dark"] .arz-site .pub-actions a {
-  color: #93c5fd !important;
-}
+    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
+      :is(h1,h2,h3,h4,h5,h6,p,li,dd,dt,small,span,strong,em,figcaption,blockquote) {
+      color: #213247 !important;
+    }
 
-/* Navigation's original !important colors need a dark override. */
-html[data-arz-theme="dark"] .arz-site .arz-site-brand,
-html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a,
-html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a {
-  color: #e2e8f0 !important;
-}
-html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a:is(:hover,[aria-current="page"]),
-html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a:is(:hover,[aria-current="page"]) {
-  color: #ffffff !important;
-}
+    /* Darker titles distinguish hierarchy on white panels. */
+    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
+      :is(h1,h2,h3,h4,h5,h6,strong) {
+      color: #102d50 !important;
+    }
 
-/* Table content and form field labels. */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(th,td,label,input,textarea,select) {
-  color: #e2e8f0 !important;
-}
-html[data-arz-theme="dark"] .arz-site input::placeholder,
-html[data-arz-theme="dark"] .arz-site textarea::placeholder {
-  color: #cbd5e1;
-}
+    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"] a {
+      color: #14518d !important;
+    }
 
-/* Footer: maintain readable contrast without changing its sizing. */
-html[data-arz-theme="dark"] .arz-site .arz-site-footer :is(p,span) {
-  color: #d8e3f0;
-}
-html[data-arz-theme="dark"] .arz-site .arz-site-footer a {
-  color: #dce9f7 !important;
-}
+    /* Do not restyle contrasting button/badge text inside pale cards. */
+    html[data-arz-theme="dark"] .arz-site [data-arz-light-surface="true"]
+      :is(button,button *, .badge,.badge *,[class*="-badge"],[class*="-badge"] *,
+           [class*="-pill"],[class*="-pill"] *) {
+      color: inherit;
+    }
+
+    /* The author profile often contains a separate white card. */
+    html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar
+      [data-arz-light-surface="true"] a {
+      color: #14518d !important;
+    }
 
   </style>
 
@@ -1079,6 +1068,48 @@ html[data-arz-theme="dark"] .arz-site .arz-site-footer a {
         render();
       });
       render();
+    })();
+  </script>
+
+
+  <!-- Keep dark-mode text readable on cards with light backgrounds. -->
+  <script>
+    (function () {
+      'use strict';
+
+      function isPaleBackground(value) {
+        var m = value && value.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
+        if (!m) return false;
+        var alpha = m[4] === undefined ? 1 : Number(m[4]);
+        if (alpha < 0.9) return false;
+        var r = Number(m[1]), g = Number(m[2]), b = Number(m[3]);
+        // The threshold identifies white / pastel cards, not dark surfaces.
+        return (0.2126 * r + 0.7152 * g + 0.0722 * b) > 188;
+      }
+
+      function updateCardContrast() {
+        var dark = document.documentElement.getAttribute('data-arz-theme') === 'dark';
+        var all = document.querySelectorAll(
+          '.arz-layout-content *, .arz-layout-sidebar *'
+        );
+        all.forEach(function (element) {
+          if (!dark) {
+            element.removeAttribute('data-arz-light-surface');
+            return;
+          }
+          var css = window.getComputedStyle(element);
+          if (isPaleBackground(css.backgroundColor)) {
+            element.setAttribute('data-arz-light-surface', 'true');
+          } else {
+            element.removeAttribute('data-arz-light-surface');
+          }
+        });
+      }
+
+      // Runs after the existing toggle's click handler changes the theme.
+      var toggle = document.getElementById('arz-theme-toggle');
+      if (toggle) toggle.addEventListener('click', updateCardContrast);
+      updateCardContrast();
     })();
   </script>
 
