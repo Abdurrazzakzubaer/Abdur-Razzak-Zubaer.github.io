@@ -7,11 +7,11 @@ author_profile: true
 
 <!-- Bootstrap 5 Grid -->
 <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <style>
 /* ==========================================
@@ -41,7 +41,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   box-sizing: border-box;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .arz-teaching .tp-hero {
   position: relative;
@@ -119,6 +119,16 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   background: var(--tp-light);
   border: 1px solid var(--tp-border);
   border-radius: 12px;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.arz-teaching .tp-stat:hover {
+  transform: translateY(-4px);
+  border-color: #c1d6eb;
+  box-shadow: 0 10px 25px rgba(20,48,82,.08);
 }
 
 .arz-teaching .tp-stat-icon {
@@ -126,19 +136,35 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 45px;
-  height: 45px;
-  border-radius: 11px;
+  width: 55px;
+  height: 55px;
+  border-radius: 13px;
   background: #e9f3ff;
   color: var(--tp-blue);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.arz-teaching .tp-stat-icon.lab-icon {
+  background: #e5f6f3;
+  color: var(--tp-teal);
+}
+
+.arz-teaching .tp-stat-icon.sessional-icon {
+  background: #eeeeff;
+  color: var(--tp-purple);
+}
+
+.arz-teaching .tp-stat-icon .emoji {
+  font-size: 1.8rem;
+  line-height: 1;
 }
 
 .arz-teaching .tp-stat strong {
   display: block;
   margin-bottom: 4px;
   color: var(--tp-navy);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
@@ -256,6 +282,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   background: var(--card-icon-bg);
   color: var(--card-accent);
   font-size: 1.55rem;
+  line-height: 1;
 }
 
 .arz-teaching .tp-course-type {
@@ -344,7 +371,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   }
 }
 
-/* MOBILE */
+/* RESPONSIVE DESIGN */
 
 @media (max-width: 767px) {
   .arz-teaching .tp-hero {
@@ -363,6 +390,11 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   .arz-teaching .tp-section-head h2 {
     font-size: 1.22rem;
   }
+
+  .arz-teaching .tp-stat-icon {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 /* ACCESSIBILITY */
@@ -379,12 +411,11 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
 <div class="arz-teaching">
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
 
   <header class="tp-hero tp-fade">
     <div class="tp-eyebrow">
-      <i class="bi bi-mortarboard"
-         aria-hidden="true"></i>
+      <i class="bi bi-mortarboard" aria-hidden="true"></i>
       Academic Teaching Portfolio
     </div>
 
@@ -398,7 +429,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
     </p>
   </header>
 
-  <!-- SUMMARY -->
+  <!-- SUMMARY CARDS -->
 
   <section class="tp-summary"
            aria-label="Teaching overview">
@@ -406,12 +437,15 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
     <div class="container-fluid px-0">
       <div class="row g-3">
 
+        <!-- Theory Courses -->
+
         <div class="col-12 col-sm-4">
           <div class="tp-stat tp-fade tp-delay-1">
             <div class="tp-stat-icon">
               <i class="bi bi-book"
                  aria-hidden="true"></i>
             </div>
+
             <div>
               <strong>4</strong>
               <span>Theory Courses</span>
@@ -419,12 +453,16 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
           </div>
         </div>
 
+        <!-- Lab Course - Fixed Icon -->
+
         <div class="col-12 col-sm-4">
           <div class="tp-stat tp-fade tp-delay-2">
-            <div class="tp-stat-icon">
-              <i class="bi bi-flask"
-                 aria-hidden="true"></i>
+            <div class="tp-stat-icon lab-icon">
+              <span class="emoji"
+                    role="img"
+                    aria-label="Laboratory">🧪</span>
             </div>
+
             <div>
               <strong>1</strong>
               <span>Lab Course</span>
@@ -432,12 +470,15 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
           </div>
         </div>
 
+        <!-- Sessional Courses -->
+
         <div class="col-12 col-sm-4">
           <div class="tp-stat tp-fade tp-delay-3">
-            <div class="tp-stat-icon">
+            <div class="tp-stat-icon sessional-icon">
               <i class="bi bi-pencil-square"
                  aria-hidden="true"></i>
             </div>
+
             <div>
               <strong>3</strong>
               <span>Sessional Courses</span>
@@ -465,6 +506,8 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
     <div class="container-fluid px-0">
       <div class="row g-3">
 
+        <!-- Solid Waste Management -->
+
         <div class="col-12 col-md-6">
           <article class="tp-card tp-theory tp-fade tp-delay-1">
             <div class="tp-card-top">
@@ -478,6 +521,8 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
             <h3>Solid Waste Management</h3>
           </article>
         </div>
+
+        <!-- Hydrology -->
 
         <div class="col-12 col-md-6">
           <article class="tp-card tp-theory tp-fade tp-delay-2">
@@ -493,6 +538,8 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
           </article>
         </div>
 
+        <!-- Advanced Surveying -->
+
         <div class="col-12 col-md-6">
           <article class="tp-card tp-theory tp-fade tp-delay-1">
             <div class="tp-card-top">
@@ -506,6 +553,8 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
             <h3>Advanced Surveying</h3>
           </article>
         </div>
+
+        <!-- Railway Engineering -->
 
         <div class="col-12 col-md-6">
           <article class="tp-card tp-theory tp-fade tp-delay-2">
@@ -532,14 +581,16 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
     <div class="tp-section-head">
       <div class="tp-section-head-icon">
-        <i class="bi bi-droplet-half"
-           aria-hidden="true"></i>
+        <span role="img"
+              aria-label="Laboratory">🧪</span>
       </div>
       <h2 id="tp-lab-heading">Lab Courses</h2>
     </div>
 
     <div class="container-fluid px-0">
       <div class="row g-3">
+
+        <!-- Fluid Mechanics Lab -->
 
         <div class="col-12">
           <article class="tp-card tp-lab tp-fade tp-delay-1">
@@ -550,6 +601,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
               </div>
               <span class="tp-course-type">Laboratory</span>
             </div>
+
             <span class="tp-course-code">CE07322212</span>
             <h3>Fluid Mechanics Lab</h3>
           </article>
@@ -569,11 +621,16 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
         <i class="bi bi-pencil-square"
            aria-hidden="true"></i>
       </div>
-      <h2 id="tp-sessional-heading">Sessional Courses</h2>
+
+      <h2 id="tp-sessional-heading">
+        Sessional Courses
+      </h2>
     </div>
 
     <div class="container-fluid px-0">
       <div class="row g-3">
+
+        <!-- Environmental Engineering Sessional -->
 
         <div class="col-12 col-md-6">
           <article class="tp-card tp-sessional tp-fade tp-delay-1">
@@ -584,10 +641,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
               </div>
               <span class="tp-course-type">Sessional</span>
             </div>
+
             <span class="tp-course-code">CE07324214</span>
             <h3>Environmental Engineering Sessional</h3>
           </article>
         </div>
+
+        <!-- Water Resource Engineering Sessional -->
 
         <div class="col-12 col-md-6">
           <article class="tp-card tp-sessional tp-fade tp-delay-2">
@@ -598,10 +658,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
               </div>
               <span class="tp-course-type">Sessional</span>
             </div>
+
             <span class="tp-course-code">CE07324310</span>
             <h3>Water Resource Engineering Sessional</h3>
           </article>
         </div>
+
+        <!-- Steel Structure Sessional -->
 
         <div class="col-12">
           <article class="tp-card tp-sessional tp-fade tp-delay-3">
@@ -612,6 +675,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
               </div>
               <span class="tp-course-type">Sessional</span>
             </div>
+
             <span class="tp-course-code">CE07323120</span>
             <h3>Steel Structure Sessional</h3>
           </article>
@@ -626,6 +690,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   <footer class="tp-note tp-fade tp-delay-3">
     <i class="bi bi-info-circle"
        aria-hidden="true"></i>
+
     <p>
       The courses listed above represent teaching
       activities in civil and environmental engineering,
