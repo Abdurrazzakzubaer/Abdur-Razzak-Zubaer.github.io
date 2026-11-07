@@ -3,6 +3,7 @@ layout: single
 title: "Projects"
 permalink: /projects/
 author_profile: true
+---
 <!-- Remove these imports if already loaded through _includes/head/custom.html. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
