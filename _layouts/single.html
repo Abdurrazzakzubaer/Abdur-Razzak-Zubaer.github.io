@@ -717,6 +717,79 @@
       .arz-site .arz-theme-toggle { padding: 10px 13px; font-size: .8rem; }
     }
 
+
+/* =====================================================
+   DARK MODE READABILITY IMPROVEMENTS ONLY
+   Keep the existing light mode and toggle unchanged.
+   ===================================================== */
+html[data-arz-theme="dark"] body.arz-site {
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Main body text and sidebar: improved size and contrast */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p, li, dd, dt, blockquote),
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p, li, dd, dt) {
+  color: #eaf1fa !important;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Readable headings without disturbing heading hierarchy */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1, h2, h3, h4, h5, h6),
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1, h2, h3, h4, h5, h6) {
+  color: #f8fbff !important;
+  line-height: 1.4;
+}
+
+/* Small metadata: author profile, dates, publication venue and captions */
+html[data-arz-theme="dark"] .arz-site :is(.pub-venue, .pub-note, .pub-year, .pub-location,
+  .author__bio, .author__urls, .page__meta, .archive__item-excerpt, figcaption, small) {
+  color: #d3e1f1 !important;
+  font-size: max(.91rem, 14.5px);
+  line-height: 1.65;
+}
+
+/* Publication titles and action links */
+html[data-arz-theme="dark"] .arz-site .pub-card h3 {
+  color: #ffffff !important;
+  font-size: clamp(1.08rem, 1.4vw, 1.24rem);
+  line-height: 1.5;
+}
+html[data-arz-theme="dark"] .arz-site :is(.pub-link, .pub-actions a,
+  .arz-layout-content a, .arz-layout-sidebar a) {
+  color: #a9d4ff !important;
+  text-underline-offset: 3px;
+}
+
+/* Navigation and small footer text */
+html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a,
+html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a {
+  font-size: .94rem;
+  line-height: 1.55;
+}
+html[data-arz-theme="dark"] .arz-site .arz-site-footer :is(p, a, span) {
+  color: #dce8f7;
+  font-size: .92rem;
+  line-height: 1.65;
+}
+
+/* Tables and form controls */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(th, td, input, textarea, select) {
+  color: #f0f5fc !important;
+  font-size: .96rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 575px) {
+  html[data-arz-theme="dark"] body.arz-site { font-size: 16px; }
+  html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p, li, dd, dt, blockquote) {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
   </style>
 
 
