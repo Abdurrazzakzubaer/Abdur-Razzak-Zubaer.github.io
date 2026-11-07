@@ -841,3 +841,113 @@
 
 </body>
 </html>
+
+/* MOBILE PUBLICATIONS LAYOUT FIX */
+
+@media (max-width: 991px) {
+
+  body.arz-site .arz-layout-container,
+  body.arz-site .arz-layout-container .container-fluid,
+  body.arz-site .arz-main-row,
+  body.arz-site .arz-content-column,
+  body.arz-site main.arz-layout-content {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  body.arz-site .arz-main-row {
+    margin: 0 !important;
+  }
+
+  body.arz-site .arz-content-column {
+    padding: 0 !important;
+  }
+
+  body.arz-site main.arz-layout-content {
+    padding: 20px 16px !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  body.arz-site main.arz-layout-content > * {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* PUBLICATIONS STYLING */
+
+body.arz-site #arz-publications-heading {
+  padding: 28px 22px;
+  margin: 0 0 24px;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    125deg,
+    #102d50,
+    #1c5688
+  );
+  color: #ffffff;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+body.arz-site #arz-publications-heading ~ h2 {
+  margin: 30px 0 16px;
+  padding: 12px 15px;
+  border-left: 4px solid #2877c7;
+  border-radius: 0 9px 9px 0;
+  background: #edf5fd;
+  color: #173b68;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+}
+
+body.arz-site #arz-publications-heading ~ h3 {
+  margin: 25px 0 12px;
+  padding: 17px 18px;
+  border: 1px solid #dfe8f1;
+  border-left: 4px solid #2877c7;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #102d50;
+  font-size: 1.03rem;
+  line-height: 1.55;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+body.arz-site #arz-publications-heading ~ h3:hover {
+  border-color: #a8cce9;
+  box-shadow: 0 6px 18px rgba(20,48,82,.08);
+}
+
+body.arz-site main.arz-layout-content a[href*="doi.org"] {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: #165f9e;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  body.arz-site #arz-publications-heading {
+    padding: 24px 18px;
+  }
+
+  body.arz-site #arz-publications-heading ~ h3 {
+    padding: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.arz-site #arz-publications-heading ~ h3 {
+    transition: none;
+  }
+}
