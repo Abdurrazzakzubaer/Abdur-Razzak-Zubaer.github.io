@@ -719,75 +719,70 @@
 
 
 /* =====================================================
-   DARK MODE READABILITY IMPROVEMENTS ONLY
-   Keep the existing light mode and toggle unchanged.
+   DARK MODE FONT COLORS — NO TYPOGRAPHY OR LAYOUT CHANGES
+   Light mode remains exactly as it was.
    ===================================================== */
-html[data-arz-theme="dark"] body.arz-site {
-  font-size: 17px;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
+
+/* Default text in the main content and author profile. */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content,
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar {
+  color: #d8e3f0;
 }
 
-/* Main body text and sidebar: improved size and contrast */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p, li, dd, dt, blockquote),
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p, li, dd, dt) {
-  color: #eaf1fa !important;
-  font-size: 1rem;
-  line-height: 1.8;
+/* Headings get the strongest contrast against dark surfaces. */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1,h2,h3,h4,h5,h6),
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1,h2,h3,h4,h5,h6),
+html[data-arz-theme="dark"] .arz-site .pub-card h3,
+html[data-arz-theme="dark"] .arz-site .pub-stat strong {
+  color: #f8fafc !important;
 }
 
-/* Readable headings without disturbing heading hierarchy */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(h1, h2, h3, h4, h5, h6),
-html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(h1, h2, h3, h4, h5, h6) {
-  color: #f8fbff !important;
-  line-height: 1.4;
+/* Descriptive text: account for custom per-page CSS colors. */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p,li,dd,dt,blockquote),
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar :is(p,li,dd,dt),
+html[data-arz-theme="dark"] .arz-site :is(.pub-venue,.pub-note,.pub-location,.author__bio,.page__meta,.archive__item-excerpt,figcaption) {
+  color: #d8e3f0 !important;
 }
 
-/* Small metadata: author profile, dates, publication venue and captions */
-html[data-arz-theme="dark"] .arz-site :is(.pub-venue, .pub-note, .pub-year, .pub-location,
-  .author__bio, .author__urls, .page__meta, .archive__item-excerpt, figcaption, small) {
-  color: #d3e1f1 !important;
-  font-size: max(.91rem, 14.5px);
-  line-height: 1.65;
+/* Subtle metadata should remain legible, not washed out. */
+html[data-arz-theme="dark"] .arz-site :is(.pub-year,.pub-num,.pub-stat span,.author__urls,.page__date) {
+  color: #cbd5e1 !important;
 }
 
-/* Publication titles and action links */
-html[data-arz-theme="dark"] .arz-site .pub-card h3 {
-  color: #ffffff !important;
-  font-size: clamp(1.08rem, 1.4vw, 1.24rem);
-  line-height: 1.5;
-}
-html[data-arz-theme="dark"] .arz-site :is(.pub-link, .pub-actions a,
-  .arz-layout-content a, .arz-layout-sidebar a) {
-  color: #a9d4ff !important;
-  text-underline-offset: 3px;
+/* Links remain visibly distinct from ordinary text. */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content a,
+html[data-arz-theme="dark"] .arz-site .arz-layout-sidebar a,
+html[data-arz-theme="dark"] .arz-site .pub-link,
+html[data-arz-theme="dark"] .arz-site .pub-actions a {
+  color: #93c5fd !important;
 }
 
-/* Navigation and small footer text */
+/* Navigation's original !important colors need a dark override. */
+html[data-arz-theme="dark"] .arz-site .arz-site-brand,
 html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a,
 html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a {
-  font-size: .94rem;
-  line-height: 1.55;
+  color: #e2e8f0 !important;
 }
-html[data-arz-theme="dark"] .arz-site .arz-site-footer :is(p, a, span) {
-  color: #dce8f7;
-  font-size: .92rem;
-  line-height: 1.65;
+html[data-arz-theme="dark"] .arz-site .arz-desktop-nav a:is(:hover,[aria-current="page"]),
+html[data-arz-theme="dark"] .arz-site .arz-mobile-menu nav a:is(:hover,[aria-current="page"]) {
+  color: #ffffff !important;
 }
 
-/* Tables and form controls */
-html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(th, td, input, textarea, select) {
-  color: #f0f5fc !important;
-  font-size: .96rem;
-  line-height: 1.65;
+/* Table content and form field labels. */
+html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(th,td,label,input,textarea,select) {
+  color: #e2e8f0 !important;
+}
+html[data-arz-theme="dark"] .arz-site input::placeholder,
+html[data-arz-theme="dark"] .arz-site textarea::placeholder {
+  color: #cbd5e1;
 }
 
-@media (max-width: 575px) {
-  html[data-arz-theme="dark"] body.arz-site { font-size: 16px; }
-  html[data-arz-theme="dark"] .arz-site .arz-layout-content :is(p, li, dd, dt, blockquote) {
-    font-size: 1rem;
-    line-height: 1.75;
-  }
+/* Footer: maintain readable contrast without changing its sizing. */
+html[data-arz-theme="dark"] .arz-site .arz-site-footer :is(p,span) {
+  color: #d8e3f0;
+}
+html[data-arz-theme="dark"] .arz-site .arz-site-footer a {
+  color: #dce9f7 !important;
 }
 
   </style>
