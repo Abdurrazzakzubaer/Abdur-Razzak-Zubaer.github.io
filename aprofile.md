@@ -485,7 +485,7 @@ author_profile: true
 
           <a
             class="ap-link"
-            href="www.linkedin.com/in/abdur-razzak-zubaer-680a821a4"
+            href="https://www.linkedin.com/in/abdur-razzak-zubaer-680a821a4/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open LinkedIn (opens in a new tab)"
