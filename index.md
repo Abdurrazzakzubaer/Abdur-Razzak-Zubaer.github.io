@@ -806,7 +806,7 @@ author_profile: true
             <div>
               <strong>Modeling</strong>
               <span>
-                Statistical Modeling (Prediction Model)
+                Statistical Modeling
               </span>
             </div>
           </div>
