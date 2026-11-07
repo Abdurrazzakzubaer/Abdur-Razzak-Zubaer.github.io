@@ -1072,107 +1072,95 @@
   </script>
 
 
-  <!-- Accessibility: correct insufficient text contrast in dark mode.
-       This covers pale cards, sidebar labels, and dark action buttons,
-       including elements styled by individual page stylesheets. -->
+  <!-- Site-wide text contrast correction for shared profile and contact blocks.
+       This runs in the shared layout on every page, not only the homepage. -->
   <script>
     (function () {
       'use strict';
-
       var root = document.documentElement;
-      var originals = new Map();
+      var selector = '.arz-site';
+      var touched = new Map();
 
-      function rgb(value) {
-        var m = String(value).match(/^rgba?\(\s*([\d.]+)\s*[, ]\s*([\d.]+)\s*[, ]\s*([\d.]+)(?:\s*[, /]\s*([\d.]+))?\s*\)$/i);
-        if (!m) return null;
-        return [Number(m[1]), Number(m[2]), Number(m[3]), m[4] === undefined ? 1 : Number(m[4])];
-      }
-
-      function blend(foreground, background) {
-        var a = foreground[3];
-        return [
-          a * foreground[0] + (1 - a) * background[0],
-          a * foreground[1] + (1 - a) * background[1],
-          a * foreground[2] + (1 - a) * background[2]
-        ];
-      }
-
-      function backgroundBehind(element) {
-        var layers = [];
-        var node = element;
-        while (node && node.nodeType === 1) {
-          var color = rgb(getComputedStyle(node).backgroundColor);
-          if (color && color[3] > 0) layers.push(color);
-          node = node.parentElement;
+      function rememberAndColor(element, color) {
+        if (!element || !element.style) return;
+        if (!touched.has(element)) {
+          touched.set(element, {
+            value: element.style.getPropertyValue('color'),
+            priority: element.style.getPropertyPriority('color')
+          });
         }
-        var base = [11, 20, 36]; // Dark mode page background.
-        for (var i = layers.length - 1; i >= 0; i--) {
-          base = blend(layers[i], base);
-        }
-        return base;
-      }
-
-      function luminance(color) {
-        var linear = color.slice(0, 3).map(function (v) {
-          var c = v / 255;
-          return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
-        });
-        return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
-      }
-
-      function ratio(a, b) {
-        var x = luminance(a), y = luminance(b);
-        return (Math.max(x, y) + .05) / (Math.min(x, y) + .05);
+        element.style.setProperty('color', color, 'important');
       }
 
       function restore() {
-        originals.forEach(function (previous, el) {
-          if (!el.isConnected) return;
-          if (previous.value) {
-            el.style.setProperty('color', previous.value, previous.priority);
+        touched.forEach(function (old, element) {
+          if (!element.isConnected) return;
+          if (old.value) {
+            element.style.setProperty('color', old.value, old.priority);
           } else {
-            el.style.removeProperty('color');
+            element.style.removeProperty('color');
           }
         });
-        originals.clear();
+        touched.clear();
       }
 
-      function fixContrast() {
-        restore();
-        if (root.getAttribute('data-arz-theme') !== 'dark') return;
-
-        // Check actual rendered colors rather than assuming all cards are dark.
-        document.querySelectorAll('.arz-site *').forEach(function (el) {
-          if (el.matches('script, style, svg, path, option, noscript')) return;
-          if (!Array.from(el.childNodes).some(function (node) {
-            return node.nodeType === 3 && node.textContent.trim();
-          })) return;
-
-          var fg = rgb(getComputedStyle(el).color);
-          if (!fg) return;
-          var bg = backgroundBehind(el);
-          var displayedFg = blend(fg, bg);
-
-          if (ratio(displayedFg, bg) >= 4.5) return;
-
-          // Navy on light surfaces; soft white on dark surfaces.
-          var navy = [23, 43, 67];
-          var white = [241, 245, 249];
-          var target = ratio(navy, bg) >= ratio(white, bg)
-            ? '#172b43' : '#f1f5f9';
-
-          originals.set(el, {
-            value: el.style.getPropertyValue('color'),
-            priority: el.style.getPropertyPriority('color')
-          });
-          el.style.setProperty('color', target, 'important');
+      function paintChildren(element, color) {
+        rememberAndColor(element, color);
+        element.querySelectorAll('i, svg, span, small, strong, em, b').forEach(function (child) {
+          if (child instanceof SVGElement) return;
+          rememberAndColor(child, color);
         });
       }
 
-      // The existing theme listener runs first, then rechecks contrast.
+      function correct() {
+        restore();
+        if (root.getAttribute('data-arz-theme') !== 'dark') return;
+        var site = document.querySelector(selector);
+        if (!site) return;
+
+        // Locate the actual text nodes. Works even when separate page CSS
+        // gives these elements different class names on CV/research/etc.
+        var walker = document.createTreeWalker(site, NodeFilter.SHOW_TEXT);
+        var nodes = [];
+        while (walker.nextNode()) {
+          var text = walker.currentNode.textContent.replace(/\s+/g, ' ').trim();
+          if (text) nodes.push({element: walker.currentNode.parentElement, text: text});
+        }
+
+        nodes.forEach(function (item) {
+          var el = item.element;
+          var text = item.text;
+          if (!el || el.closest('#arz-theme-toggle')) return;
+
+          // 1. 'Lecturer' designation on a white author card.
+          if (/^lecturer(?:\s*[,|•-].*)?$/i.test(text)) {
+            paintChildren(el, '#172b43');
+          }
+
+          // 2. 'Email Addresses' is on a dark blue button.
+          if (/^email addresses$/i.test(text)) {
+            var button = el.closest('a,button') || el;
+            paintChildren(button, '#ffffff');
+          }
+
+          // 3. Introductory paragraph inside a pale contact panel.
+          if (/for academic correspondence, research discussion/i.test(text)) {
+            paintChildren(el, '#172b43');
+          }
+        });
+      }
+
+      // Reapply after the toggle and after external page scripts have loaded.
       var toggle = document.getElementById('arz-theme-toggle');
-      if (toggle) toggle.addEventListener('click', fixContrast);
-      fixContrast();
+      if (toggle) toggle.addEventListener('click', function () {
+        requestAnimationFrame(correct);
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', correct);
+      } else {
+        correct();
+      }
+      window.addEventListener('load', correct, {once: true});
     })();
   </script>
 
